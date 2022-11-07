@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Todo list</title>
+    <meta charset='utf-8'>
+    <link rel='stylesheet' href='./css/styles.css'/>
+  
+    <link rel='stylesheet' href='./bootstrap/bootstrap-5.2.2-dist/css/bootstrap.min.css'/>
+
+
+    <script src='./bootstrap/bootstrap-5.2.2-dist/js/bootstrap.min.js'></script>
+    <script src='./js/main.js'></script>
+  </head>
+  <body>
+
+    <div class='container-md'>
+      <h1>To do list</h1>
+      <div class='alert alert-danger d-none' role='alert' id='alert'>Title and description is required</div>
+    <form>
+      <div class='form-group'>
+	<label for='title'>Title: </label>
+	<input type='text' class='form-control' id='title' />
+      <div/>
+      <div class='form-group'>
+	<label for='description'>Description: </label>
+	<input type='text' class='form-control' id='description' />
+      <div/>
+      <button class='btn btn-primary' id='add'>Add</button>
+      
+    </form> 
+    <table id='table' class='table'>
+      <thead>
+	<tr>
+	  <th>Name</th> 
+	  <th>Description</th>
+	  <th>Completed</th>
+	</tr>
+      </thead>
+      <tbody>
+	<tr>
+	  <td>Play</td>
+	  <td>i'm going to play</td>
+	  <td><input type='checkbox' id='check'/></td>
+	  <td><button>Edit</button><button>Delete</button></td>
+	</tr>
+      </tbody>
+    </table>
+    </div>
+
+  </body>
+
+
+</html>
