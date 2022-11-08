@@ -4,24 +4,36 @@ document.addEventListener('DOMContentLoaded', function(){
   const title=document.getElementById('title');
   const description=document.getElementById('description');
   const table = document.getElementById('table');
-  const alert = document.getElementById('alert');
-   
-  function addTodo(){
-    if(title.value==='' || description.value===''){
-      alert.classList.remove('d-none')
-    }else{
-      const tr=document.createElement('tr')
-      const td_title=document.createElement('td')
-      const td_description=document.createElement('td')
-      
-      td_title.textContent=title.value
-      td_description.textContent=description.value
-
-      tr.appendChild(td_title)
-      tr.appendChild(td_description)
-      table.appendChild(tr)
-    }
+  const alerta = document.getElementById('alert');
+  let id=1; 
+  function removeTodo(id){
+    document.getElementById(id).remove();
   }
+   btn.addEventListener('click',function(e){
+      e.preventDefault();
+      if(title.value==='' || description.value===''){
+	alerta.classList.remove('d-none');
+	alerta.innerHTML='Title and description are required';
+	return;
+      }
+      alerta.classList.add('d-none');
+      const row = table.insertRow();
+      row.setAttribute('id', id++)
+      row.innerHTML=`
+	<td>${title.value}</td> 
+	<td>${description.value}</td>
+	<td><input type='checkbox' id='check'/></td>
+	<td></td>
+    `;
+     const removeBtn=document.createElement('button');
+     removeBtn.classList.add('btn', 'btn-danger');
+     removeBtn.textContent='Borrar';
+     row.children[3].appendChild(removeBtn)
+      
+     removeBtn.addEventListener('click', function(e){
+	e.preventDefault();
+	removeTodo(row.getAttribute('id'))
+     });
+  });
 
-  btn.onclick=addTodo()
 })
